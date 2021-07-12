@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { Header } from '.'
 
 jest.mock('next/router', () => {
@@ -20,10 +20,10 @@ jest.mock('next-auth/client', () => {
 
 describe('Header', () => {
   it('renders correctly', () => {
-    const { getByText } = render(
+    render(
       <Header />
     )
-    expect(getByText('Home')).toBeInTheDocument()
-    expect(getByText('Posts')).toBeInTheDocument()
+    expect(screen.getByText('Home')).toBeInTheDocument()
+    expect(screen.getByText('Posts')).toBeInTheDocument()
   })
 })
